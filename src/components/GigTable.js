@@ -19,7 +19,6 @@ export default function GigTable(props){
 
     return (
         <>
-        <h2>test!</h2>
         {
         gigs.map(gig => {
             return (

@@ -9,14 +9,10 @@ export default function GigTable(props){
 
         (async () => {
             const response = await axios.get('http://localhost:3001/gigs')
-            await console.log(response.datas)
+            // await console.log(response.datas)
             await setGigs(response.data.gigs)
         })()
     }, [])
-
-    // console.log([gigs])
-    console.log(gigs)
-
     useEffect(()=>{}, [gigs])
     
     

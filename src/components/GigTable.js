@@ -3,13 +3,14 @@ import axios from 'axios'
 
 export default function GigTable(props){
 
-    const [gigs, setGigs] = useState({})
+    const [gigs, setGigs] = useState([])
 
     useEffect(() => {
 
         (async () => {
             const response = await axios.get('http://localhost:3001/gigs')
-            await setGigs(response.data)
+            await console.log(response.datas)
+            await setGigs(response.data.gigs)
         })()
     }, [])
 
@@ -23,7 +24,7 @@ export default function GigTable(props){
     return (
         <>
         <h2>test!</h2>
-        {/* {
+        {
         gigs.map(gig => {
             return (
                 <div key={gig.id}>
@@ -37,7 +38,7 @@ export default function GigTable(props){
             )
 
         })
-        } */}
+        }
         </>
     )
 }

@@ -1,26 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
 
 export default function GigTable(props){
 
-    const [gigs, setGigs] = useState([])
-
-    useEffect(() => {
-
-        (async () => {
-            const response = await axios.get('http://localhost:3001/gigs')
-            // await console.log(response.datas)
-            await setGigs(response.data.gigs)
-        })()
-    }, [])
-    useEffect(()=>{}, [gigs])
-    
-    
+    // const [id, venue_stream] = props.gigs
 
     return (
         <>
         {
-        gigs.map(gig => {
+        props.gigs.map(gig => {
             return (
                 <div key={gig.id}>
                     {

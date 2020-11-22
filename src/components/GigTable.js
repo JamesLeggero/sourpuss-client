@@ -15,11 +15,6 @@ const useStyles = makeStyles({
     }
 })
 
-const handleClick = event => {
-    event.persist()
-    window.open(event.target.id)
-}
-
 export default function GigTable(props){
 
     // const [id, venue_stream] = props.gigs

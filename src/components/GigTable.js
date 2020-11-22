@@ -8,11 +8,17 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+
 const useStyles = makeStyles({
     table: {
         minWidth: 650
     }
 })
+
+const handleClick = event => {
+    event.persist()
+    window.open(event.target.id)
+}
 
 export default function GigTable(props){
 
@@ -21,7 +27,7 @@ export default function GigTable(props){
 
     return (
         <>
-        <TableContainer coponent = {Paper}>
+        <TableContainer coponent={Paper}>
             <Table className={classes.table} aria-label='gig table'>
                 <TableHead>
                     <TableRow>
@@ -37,7 +43,23 @@ export default function GigTable(props){
                         return(
                         <TableRow key={gig.id}>
                             <TableCell align='right'>{gig.band}</TableCell>
-                            <TableCell align='right'>{gig.venue_stream}</TableCell>
+                            <TableCell 
+                                align='right'>
+
+                                 <a 
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'black'
+                                    }}
+                                    href={
+                                     gig.v_s_link.slice(0, 4)=== 'http' ?
+                                     gig.v_s_link :
+                                     `https://${gig.v_s_link}`
+                                     } target='_blank' rel='noreferrer noopener'>
+                                     {gig.venue_stream}
+                                 </a>
+                                
+                            </TableCell>
                             <TableCell align='right'>{gig.support}</TableCell>
                             <TableCell align='right'>{gig.date}</TableCell>
                             <TableCell align='right'>{gig.time}</TableCell>

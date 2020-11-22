@@ -36,7 +36,7 @@ function App() {
           }>
         Click for more
       </Button> */}
-      <NewGig />
+      {/* <NewGig /> */}
     </div>
   );
 }
